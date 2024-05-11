@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>HỆ THỐNG Y TẾ</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/iconWebsite.jpg')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{url_for('static', filename='Css/Index.css')}}">
+    <script src="https://kit.fontawesome.com/2e37e3d119.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="welcome-overlay">
+        <div id="welcome-message">
+            <img src="{{url_for('static', filename='img/iconWebsite.jpg')}}" alt="Medical Logo" style="width: 100px; height: 100px; margin-bottom: 20px;">
+            <h2>Hệ thống dự đoán bệnh Tim mạch</h2>
+            <p>Hãy bắt đầu dự đoán ngay bây giờ để có sự chăm sóc sức khỏe tốt nhất.</p>
+            <button onclick="hideWelcomeMessage()">Bắt đầu</button>
+        </div>
+    </div>
+    
+    <div>
+        <h1 style="font-size: 50px;color: #273492;position: absolute;left: 23%;top: 1%;font-weight:900 ;">HỆ THỐNG DỰ ĐOÁN BỆNH TIM MẠCH</h1>
+    </div>
+
+    <div class="container">
+        <div class="column">
+            <form id="paramForm1" class="form-container" style="margin: 100px -100px 0px 100px;">
+                <!-- Nhóm 1: Param 1-7 -->
+                <div class="group">
+                    <label for="param1">1. Tuổi:</label>
+                    <input type="text" id="param1" name="param1"><br><br>
+
+                    <label for="param2">2. Giới tính:</label>
+                    <select id="param2" name="param2">
+                        <option value="0">Nữ</option>
+                        <option value="1">Nam</option>
+                    </select><br><br>
+
+                    <label for="param3">3. Loại đau thắt ngực:</label>
+                    <select id="param3" name="param3">
+                        <option value="0">Không có đau thắt ngực</option>
+                        <option value="1">Đau thắt ngực cảm giác áp lực</option>
+                        <option value="2">Đau thắt ngực cảm giác không thoải mái</option>
+                        <option value="3">Đau thắt ngực cảm giác cực đoan</option>
+                    </select><br><br>
+
+                    <label for="param4">4. Huyết áp tĩnh trong lúc nghỉ ngơi (Đơn vị mm/Hg):</label>
+                    <input type="text" id="param4" name="param4"><br><br>
+
+                    <label for="param5">5. Lượng cholesterol trong huyết thanh (Đơn vị mg/dL):</label>
+                    <input type="text" id="param5" name="param5"><br><br>
+
+                    <label for="param6">6. Mức đường huyết sau khi ăn ít nhất 8 giờ:</label>
+                    <select id="param6" name="param6">
+                        <option value="0">Mức đường huyết < 120 mg/dL</option>
+                        <option value="1">Mức đường huyết > 120 mg/dL</option>
+                    </select><br><br>
+
+                    <label for="param7">7. Kết quả điện tâm đồ khi nghỉ ngơi:</label>
+                    <select id="param7" name="param7">
+                        <option value="0">Kết quả bình thường</option>
+                        <option value="1">Có dấu hiệu rối loạn của cơ tim</option>
+                        <option value="2">Hiển thị dấu hiệu của phì đại cơ tim</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="column">
+            <form id="paramForm2" class="form-container" style="margin: 100px 100px 0px -100px;">
+                <!-- Nhóm 2: Param 8-13 -->
+                <div class="group">
+                    <label for="param8">8. Tần số tim tối đa đạt được trong quá trình kiểm tra:</label>
+                    <input type="text" id="param8" name="param8"><br><br>
+
+                    <label for="param9">9. Tập thể dục có gây đau thắt ngực không:</label>
+                    <select id="param9" name="param9">
+                        <option value="0">Không</option>
+                        <option value="1">Có</option>
+                    </select><br><br>
+
+                    <label for="param10">10. Chênh lệch đoạn ST khi tập thể dục so với lúc nghỉ:</label>
+                    <input type="text" id="param10" name="param10"><br><br>
+
+                    <label for="param11">11. Độ dốc của đoạn ST cao nhất trong quá trình tập thể dục:</label>
+                    <select id="param11" name="param11">
+                        <option value="0">Không đều</option>
+                        <option value="1">Tăng</option>
+                        <option value="2">Giảm</option>
+                    </select><br><br>
+
+                    <label for="param12">12. Số lượng mạch chính được nhuộm màu trong quá trình xét nghiệm với chất nhuộm:</label>
+                    <select id="param12" name="param12">
+                        <option value="0">0 mạch</option>
+                        <option value="1">1 mạch</option>
+                        <option value="2">2 mạch</option>
+                        <option value="3">3 mạch</option>
+                    </select><br><br>
+
+                    <label for="param13">13. Loại bệnh thống kê từ dữ liệu thalassemia:</label>
+                    <select id="param13" name="param13">
+                        <option value="1">Bình thường</option>
+                        <option value="2">Khuyết tật cố định</option>
+                        <option value="3">Khuyết tật có thể đảo ngược</option>
+                    </select><br><br><br>
+                </div>
+                
+                <div class="centered">
+                    <button class="inputDiv greetingDiv" type="button" onclick="sendParamsAndHideForm();">Gửi dữ liệu</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    
+    <script src="{{url_for('static', filename='js/Index.js')}}"></script>
+</body>
+</html>

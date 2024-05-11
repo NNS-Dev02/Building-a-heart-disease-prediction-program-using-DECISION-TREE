@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>HỆ THỐNG Y TẾ</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/iconWebsite.jpg')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{url_for('static', filename='Css/Result.css')}}">
+    <script src="https://kit.fontawesome.com/2e37e3d119.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <img src="{{url_for('static', filename='img/iconWebsite.jpg')}}" style="height: 30px; width: 30px; position: absolute; top: 1%; left: 0.5%;">
+    <div class="card" style="background: white;">
+        {% if result == '0' %}
+            <img src="{{url_for('static', filename='img/result/TimMachKhoeManh.png')}}" class="card__image" alt="brown couch" />
+        {% elif result == '1' %}
+            <img src="{{url_for('static', filename='img/result/TimMachBiBenh.jpg')}}" class="card__image" alt="brown couch" />
+        {% endif %}
+        <div class="card__content">
+            <time datetime="2021-03-30" class="card__date">HỆ THỐNG DỰ ĐOÁN BỆNH TIM MẠCH</time>
+            <span class="card__title">
+                {% if result is none %}
+                    Không có kết quả.
+                {% elif result == '0' %}
+                    Bạn KHÔNG mắc bệnh tim mạch.
+                {% elif result == '1' %}
+                    Bạn CÓ NGUY CƠ mắc bệnh tim mạch.
+                {% else %}
+                    Không có dữ liệu để dự đoán.
+                {% endif %}
+    
+                {% if result == '0' %}
+                    <ul style="font-size: 20px;">
+                        <li><b>Ăn uống lành mạnh:</b> Hãy tập trung vào việc ăn nhiều rau củ, trái cây, ngũ cốc nguyên hạt và thực phẩm giàu omega-3 như cá hồi. Hạn chế đồ ăn chứa cholesterol cao, đường và muối.</li>
+                        <li><b>Tập thể dục đều đặn:</b> Đề xuất tập ít nhất 30 phút mỗi ngày, 5 ngày mỗi tuần. Tập thể dục giúp cải thiện sức khỏe tim mạch, kiểm soát cân nặng, và giảm áp lực máu.</li>
+                        <li><b>Giữ cân nặng ổn định:</b> Cân nặng không ổn định có thể tăng nguy cơ mắc bệnh tim mạch. Hãy duy trì một chế độ ăn uống cân đối và thúc đẩy một lối sống hoạt động để duy trì cân nặng lý tưởng.</li>
+                        <li><b>Kiểm soát căng thẳng:</b> Căng thẳng có thể tăng nguy cơ mắc bệnh tim mạch. Thực hành kỹ thuật giảm căng thẳng như thiền, yoga, hoặc tập thể dục nhẹ nhàng có thể giúp giảm căng thẳng và làm giảm áp lực lên tim.</li>
+                    </ul>
+                {% elif result == '1' %}
+                    <ul style="font-size: 20px;">
+                        <li><b>Tuân thủ đúng phác đồ điều trị của bác sĩ:</b> Luôn tuân thủ đúng các chỉ định và đơn thuốc mà bác sĩ của bạn giao. Điều này bao gồm việc uống thuốc đúng liều lượng và theo đúng lịch trình.</li>
+                        <li><b>Thay đổi lối sống lành mạnh:</b> Chỉnh sửa lối sống là một phần quan trọng của quản lý bệnh tim mạch. Bao gồm ăn uống lành mạnh, tập thể dục đều đặn, kiểm soát cân nặng, và hạn chế các thói quen không lành mạnh như hút thuốc lá và tiêu thụ cồn.</li>
+                        <li><b>Kiểm soát các yếu tố nguy cơ:</b> Kiểm soát các yếu tố nguy cơ như huyết áp, cholesterol và đường huyết thông qua chế độ ăn uống phù hợp, thuốc điều trị, và theo dõi định kỳ với bác sĩ.</li>
+                        <li><b>Quản lý căng thẳng:</b> Căng thẳng có thể ảnh hưởng đến sức khỏe tim mạch. Hãy thử các kỹ thuật giảm căng thẳng như thiền, yoga, hoặc tham gia các hoạt động thư giãn để giúp giảm bớt căng thẳng và lo lắng.</li>
+                    </ul>
+                {% endif %}
+            </span>
+        </div>
+    </div>    
+</body>
+</html>
